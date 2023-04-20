@@ -7,10 +7,10 @@ Payum is an MIT-licensed open source project with its ongoing development made p
 
 ---
 
-# Paypal Express Checkout. Confirm order step.
+# PayPal Express Checkout. Confirm order step.
 
-Paypal official documentation [suggest you to show a confirm order page](https://developer.paypal.com/docs/classic/express-checkout/integration-guide/ECGettingStarted/#id084RN0F0OPN), once user is back from Paypal.
-By default Payum skip this step, at Paypal site you will see "Pay Now" button. If you want to use confirm step you have to reset
+PayPal official documentation [suggest you to show a confirm order page](https://developer.paypal.com/docs/classic/express-checkout/integration-guide/ECGettingStarted/#id084RN0F0OPN), once user is back from PayPal.
+By default Payum skip this step, at PayPal site you will see "Pay Now" button. If you want to use confirm step you have to reset
 `AUTHORIZE_TOKEN_USERACTION`. Set it to empty string
 
 ```php

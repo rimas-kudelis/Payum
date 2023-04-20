@@ -15,7 +15,7 @@ Steps:
 * [Configure gateway](#configure-context)
 * [Prepare payment](#prepare-payment)
 
-_**Note**: We assume you followed all steps in [get it started](../get-it-started.md) and your basic configuration same as described there._
+_**Note**: We assume you followed all steps in [getting started](../getting-started.md) and your basic configuration same as described there._
 
 ## Download libraries
 

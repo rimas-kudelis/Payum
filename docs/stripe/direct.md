@@ -58,6 +58,6 @@ $payment->setCreditCard($card);
 ```
 
 Here you have to modify a `gatewayName` value. Set it to `stripe`. And create and populate a credit card object. 
-The rest remain the same as described in basic [get it started](../get-it-started.md) documentation.
+The rest remain the same as described in basic [getting started](../getting-started.md) documentation.
  
 Back to [index](../index.md).

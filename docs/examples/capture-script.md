@@ -11,8 +11,8 @@ Payum is an MIT-licensed open source project with its ongoing development made p
 
 This is the script which does all the job related to capturing payments. 
 It may show a credit card form, an iframe or redirect a user to gateway side.
-Each capture url is completely unique for each purchase, and once we done the url is invalidated and no more accessible.
-When the capture is done a user is redirected to after url, in our case it is [done script](done-script.md).
+Each capture URL is completely unique for each purchase, and once we're done the URL is invalidated and no longer accessible.
+When the capture is done a user is redirected to after URL, in our case it is [done script](done-script.md).
 
 ## Secured script.
 
@@ -20,38 +20,35 @@ When the capture is done a user is redirected to after url, in our case it is [d
 <?php
 //capture.php
 
-use Payum\Core\Request\Capture;
-use Payum\Core\Payum;
-use Payum\Core\Reply\HttpResponse;
-use Payum\Core\Reply\ReplyInterface;
-
 include __DIR__.'/config.php';
 
-/** @var Payum $payum */
+use Payum\Core\Reply\HttpResponse;
+use Payum\Core\Request\Capture;
 
 $token = $payum->getHttpRequestVerifier()->verify($_REQUEST);
 $gateway = $payum->getGateway($token->getGatewayName());
 
-try {
-    $gateway->execute(new Capture($token));
-
-    if (false == isset($_REQUEST['noinvalidate'])) {
-        $payum->getHttpRequestVerifier()->invalidate($token);
+if ($reply = $gateway->execute(new Capture($token), true)) {
+    if ($reply instanceof HttpResponse) {
+        foreach ($reply->getHeaders() as $name => $value) {
+            header(sprintf('%s: %s', $name, $value));
+        }
+        
+        http_response_code($reply->getStatusCode());
+        
+        echo $reply->getContent();
+        
+        die();
     }
 
-    header("Location: ".$token->getAfterUrl());
-} catch (HttpResponse $reply) {
-    foreach ($reply->getHeaders() as $name => $value) {
-        header("$name: $value");
-    }
-
-    http_response_code($reply->getStatusCode());
-    echo ($reply->getContent());
-
-    exit;
-} catch (ReplyInterface $reply) {
-    throw new \LogicException('Unsupported reply', null, $reply);
+    throw new LogicException('Unsupported reply', null, $reply);
 }
+
+if (false == isset($_REQUEST['noinvalidate'])) {
+    $payum->getHttpRequestVerifier()->invalidate($token);
+}
+
+header("Location: ".$token->getAfterUrl());
 ```
 
 

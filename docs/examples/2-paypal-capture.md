@@ -7,7 +7,7 @@ Payum is an MIT-licensed open source project with its ongoing development made p
 
 ---
 
-# 2. Paypal. Redirects. 
+# 2. PayPal. Redirects. 
 
 ```php
 <?php

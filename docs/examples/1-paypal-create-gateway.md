@@ -7,7 +7,7 @@ Payum is an MIT-licensed open source project with its ongoing development made p
 
 ---
 
-# 1. Paypal. Create Gateway. 
+# 1. PayPal. Create Gateway. 
 
 ```php
 <?php

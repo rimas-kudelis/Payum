@@ -14,7 +14,7 @@ A customer enter the card once and billed later without the need to reenter it a
 
 ## Store card
 
-This is a usual charge as we showed it in [get-it-started](get-it-started.md) with only these additions:
+This is a usual charge as we showed it in [getting-started](getting-started.md) with only these additions:
 
 ```php
 <?php
@@ -48,7 +48,7 @@ $token = $getToken->token; // if not null you are done. store it somewhere
 
 ## Use stored card
 
-This is a usual charge as we showed it in [get-it-started](get-it-started.md) with only these additions:
+This is a usual charge as we showed it in [getting-started](getting-started.md) with only these additions:
 
 ```php
 <?php

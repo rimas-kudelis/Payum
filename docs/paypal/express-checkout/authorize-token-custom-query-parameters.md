@@ -7,7 +7,7 @@ Payum is an MIT-licensed open source project with its ongoing development made p
 
 ---
 
-# Paypal Express Checkout. Authorize token custom query parameters.
+# PayPal Express Checkout. Authorize token custom query parameters.
 
 It often required to customize authorize token ulr parameters.
 For example you may want a mobile version of paypal pages.

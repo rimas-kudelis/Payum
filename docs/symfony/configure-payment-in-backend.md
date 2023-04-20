@@ -9,7 +9,7 @@ Payum is an MIT-licensed open source project with its ongoing development made p
 
 # Payum Bundle. Configure gateway in backend
 
-In [get it started](get-it-started.md) we showed you how to configure gateways in the Symfony config.yml file. 
+In [getting started](getting-started.md) we showed you how to configure gateways in the Symfony config.yml file. 
 Though it covers most of the cases sometimes you may want to configure gateways in the backend. 
 For example you will be able to change a gateway credentials, add or delete a gateway.
 
@@ -78,7 +78,7 @@ payum:
 
 #### Backend
 
-The following code is a basic example for configuring a [Paypal Express Checkout](https://github.com/Payum/Payum/blob/master/docs/paypal/express-checkout/get-it-started.md) gateway.
+The following code is a basic example for configuring a [PayPal Express Checkout](https://github.com/Payum/Payum/blob/master/docs/paypal/express-checkout/getting-started.md) gateway.
 
 We first need to create a FormType with three fields:
   1. `factoryName`, the name of a factory, in our case it will always be `paypal_express_checkout`
@@ -87,7 +87,7 @@ We first need to create a FormType with three fields:
 
 ```php
 <?php
-// src/Acme/PaymentBundle/Form/Type/GatewayConfigType.php
+// src/Acme/PaymentBundle/Form/Type/PayPalGatewayConfigType.php
 
 namespace Acme\PaymentBundle\Form\Type;
 
@@ -96,7 +96,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-final class PaypalGatewayConfigType extends AbstractType
+final class PayPalGatewayConfigType extends AbstractType
 {   
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {        
@@ -106,7 +106,7 @@ final class PaypalGatewayConfigType extends AbstractType
                 'data' => 'paypal_express_checkout',
             ])
             ->add('gatewayName', TextType::class)
-            ->add('config', ConfigPaypalGatewayConfigType::class, [
+            ->add('config', ConfigPayPalGatewayConfigType::class, [
                 'label' => false,
                 'auto_initialize' => false,
             ])
@@ -124,7 +124,7 @@ final class PaypalGatewayConfigType extends AbstractType
 
 Then, we should implement a new FormType that will configure your PayPal gateway's config.
 
-By reading [the doc](https://github.com/Payum/Payum/blob/master/docs/paypal/express-checkout/get-it-started.md), we should create four fields:
+By reading [the doc](https://github.com/Payum/Payum/blob/master/docs/paypal/express-checkout/getting-started.md), we should create four fields:
   1. `sandbox`
   2. `username`
   3. `password`
@@ -133,7 +133,7 @@ By reading [the doc](https://github.com/Payum/Payum/blob/master/docs/paypal/expr
 
 ```php
 <?php
-// src/Acme/PaymentBundle/Form/Type/PaypalGatewayConfigType.php
+// src/Acme/PaymentBundle/Form/Type/ConfigPayPalGatewayConfigType.php
 
 namespace Acme\PaymentBundle\Form\Type;
 
@@ -141,7 +141,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
-final class ConfigPaypalGatewayConfigType extends AbstractType
+final class ConfigPayPalGatewayConfigType extends AbstractType
 {   
     public function buildForm(FormBuilderInterface $builder, array $options): void
     { 
@@ -155,7 +155,7 @@ final class ConfigPaypalGatewayConfigType extends AbstractType
 }
 ```
 
-For a more advanced example, you can check how Sylius implemented [Paypal and Stripe gateways form types](https://github.com/Sylius/Sylius/tree/master/src/Sylius/Bundle/PayumBundle/Form/Type).
+For a more advanced example, you can check how Sylius implemented [PayPal and Stripe gateways form types](https://github.com/Sylius/Sylius/tree/master/src/Sylius/Bundle/PayumBundle/Form/Type).
 
 ## Use gateway
 

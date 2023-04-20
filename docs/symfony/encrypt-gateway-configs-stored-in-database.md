@@ -66,11 +66,11 @@ If you are using [Sonata Admin integration](./configure-payment-in-backend.md#wi
 
 ### The manual way
 
-You should tell to Symfony how to encrypt/decrypt your gateway configuration when you use your `PaypalGatewayConfigType` form type (previously done in [Configure gateway in backend](./configure-payment-in-backend.md)).
+You should tell to Symfony how to encrypt/decrypt your gateway configuration when you use your `PayPalGatewayConfigType` form type (previously done in [Configure gateway in backend](./configure-payment-in-backend.md)).
 
 For that, you have two solutions:
-  1. update your `PaypalGatewayConfigType` form type
-  2. create a [Form Type Extension](https://symfony.com/doc/current/form/create_form_type_extension.html) that will modify your `PaypalGatewayConfigType` form type
+  1. update your `PayPalGatewayConfigType` form type
+  2. create a [Form Type Extension](https://symfony.com/doc/current/form/create_form_type_extension.html) that will modify your `PayPalGatewayConfigType` form type
 
 The second solution is better, because if you have a form type for a second gateway (for example [Stripe.js](../index.md#stripe)),
 you won't have to duplicate your logic in your `StripeGatewayConfigType` form type.
@@ -85,7 +85,7 @@ declare(strict_types=1);
 
 namespace Acme\PaymentBundle\Form\Extension;
 
-use Acme\PaymentBundle\Form\Type\Payment\PaypalGatewayConfigType;
+use Acme\PaymentBundle\Form\Type\Payment\PayPalGatewayConfigType;
 use Payum\Core\Security\CryptedInterface;
 use Payum\Core\Security\CypherInterface;
 use Symfony\Component\Form\AbstractTypeExtension;
@@ -143,9 +143,9 @@ class CryptedGatewayConfigTypeExtension extends AbstractTypeExtension
      */
     public function getExtendedTypes(): array
     {
-        // The extension will be applied on `PaypalGatewayConfigType` form type.
+        // The extension will be applied on `PayPalGatewayConfigType` form type.
         // Feel free to add another form types if needed.
-        return [PaypalGatewayConfigType::class];
+        return [PayPalGatewayConfigType::class];
     }
 }
 ```

@@ -45,8 +45,8 @@ payum:
 
 -**Note**: You should use commented path if you install payum/payum package.-
 
-* [Paypal express checkout](custom-purchase-examples/paypal-express-checkout.md).
-* [Paypal pro checkout](custom-purchase-examples/paypal-pro-checkout.md).
+* [PayPal express checkout](custom-purchase-examples/paypal-express-checkout.md).
+* [PayPal pro checkout](custom-purchase-examples/paypal-pro-checkout.md).
 * [Payex](custom-purchase-examples/payex.md).
 * [Authorize.Net AIM](custom-purchase-examples/authorize-net-aim.md).
 * [Be2Bill credit card](custom-purchase-examples/be2bill.md).
@@ -56,6 +56,6 @@ payum:
 * [Stripe.Js](custom-purchase-examples/stripe-js.md).
 * [Stripe Checkout](custom-purchase-examples/stripe-checkout.md).
 * [Stripe Direct (via omnipay)](custom-purchase-examples/stripe-via-omnipay.md).
-* [Paypal express checkout (via omnipay)](custom-purchase-examples/paypal-via-omnipay.md).
-* [JMS payment plugins](../jms-payment-bridge/get-it-started.md).
+* [PayPal express checkout (via omnipay)](custom-purchase-examples/paypal-via-omnipay.md).
+* [JMS payment plugins](../jms-payment-bridge/getting-started.md).
 * [Back to index](../index.md).

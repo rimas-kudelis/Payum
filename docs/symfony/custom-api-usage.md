@@ -44,7 +44,7 @@ class Factory
     /**
      * @return Api
      */
-    public function createPaypalExpressCheckoutApi()
+    public function createPayPalExpressCheckoutApi()
     {
         return new Api(array(
             'username' => $this->container->getParameter('paypal.express_checkout.username'),
@@ -76,7 +76,7 @@ services:
         class: Payum\Paypal\ExpressCheckout\Nvp\Api
         public: true
         factory_service: acme.payment.payum.api.factory
-        factory_method: createPaypalExpressCheckoutApi
+        factory_method: createPayPalExpressCheckoutApi
 ```
 
 When we are done we can tell payum to use this service instead of default one:

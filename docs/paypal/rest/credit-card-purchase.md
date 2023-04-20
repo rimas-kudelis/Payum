@@ -7,9 +7,9 @@ Payum is an MIT-licensed open source project with its ongoing development made p
 
 ---
 
-# Paypal Rest. Credit card purchase.
+# PayPal Rest. Credit card purchase.
 
-In [get it started](get-it-started.md) chapter we showed how you can setup payment with authorization on the paypal side.
+In [getting started](getting-started.md) chapter we showed how you can setup payment with authorization on the paypal side.
 Here we show how to purchase something using credit card provided by a user.
 
 ## Prepare payment

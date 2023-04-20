@@ -10,7 +10,7 @@ Payum is an MIT-licensed open source project with its ongoing development made p
 # Be2Bill. Offsite
 
 In this chapter we are going to talk about the most common task: purchase of a product using [be2bill](http://www.be2bill.com/).
-We assume you already read basic [get it started](../get-it-started.md).
+We assume you already read basic [getting started](../getting-started.md).
 Here we just show you modifications you have to put to the files shown there.
 
 ## Installation
@@ -79,7 +79,7 @@ _**Note**: This step could be skipped if you are not using be2bill offsite._
 
 ## prepare.php
 
-Here you have to modify a `gatewayName` value. Set it to `be2bill` or `be2bill_offsite`. The rest remain the same as described in basic [get it started](../get-it-started.md) documentation.
+Here you have to modify a `gatewayName` value. Set it to `be2bill` or `be2bill_offsite`. The rest remain the same as described in basic [getting started](../getting-started.md) documentation.
 
 
 Back to [index](../index.md).

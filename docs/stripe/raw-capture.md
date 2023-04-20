@@ -9,7 +9,7 @@ Payum is an MIT-licensed open source project with its ongoing development made p
 
 # Stripe. Raw capture 
 
-In the basic [get it started](../get-it-started.md) we showed how to use the library with unified interface or in other words Payment model.
+In the basic [getting started](../getting-started.md) we showed how to use the library with unified interface or in other words Payment model.
 Sometimes you need completely custom solution.
 
 ## prepare.php
@@ -17,7 +17,7 @@ Sometimes you need completely custom solution.
 Installation and configuration are same and we have to modify only a prepare part. 
 
 Here you have to modify a `gatewayName` value. Set it to `stripe_js` or any other you want.
-The rest remain the same as described in basic [get it started](../get-it-started.md) documentation.
+The rest remain the same as described in basic [getting started](../getting-started.md) documentation.
 
 ```php
 <?php

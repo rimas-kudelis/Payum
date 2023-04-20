@@ -11,9 +11,9 @@ Payum is an MIT-licensed open source project with its ongoing development made p
 
 ## Gateways
 
-* [Paypal. Create gateway](1-paypal-create-gateway.md)
-* [Paypal. Capture](2-paypal-capture.md)
-* [Paypal. Redirects](3-paypal-redirects.md)
+* [PayPal. Create gateway](1-paypal-create-gateway.md)
+* [PayPal. Capture](2-paypal-capture.md)
+* [PayPal. Redirects](3-paypal-redirects.md)
 * [Get status](4-get-status.md)
 * [Stripe.Js. Create gateway](5-stripe-js-create-gateway.md)
 * [Stripe.Js. Capture](6-stripe-js-capture.md)

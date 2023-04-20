@@ -71,7 +71,7 @@ payum:
                 id_property: 'required'
 ```
 
-## Paypal express checkout gateway
+## PayPal express checkout gateway
 
 ```yaml
 payum:
@@ -84,7 +84,7 @@ payum:
             sandbox: true
 ```
 
-## Paypal pro checkout gateway
+## PayPal pro checkout gateway
 
 ```yaml
 payum:

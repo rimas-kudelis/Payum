@@ -7,7 +7,7 @@ Payum is an MIT-licensed open source project with its ongoing development made p
 
 ---
 
-# Paypal Express Checkout. Authorize order.
+# PayPal Express Checkout. Authorize order.
 
 Authorization & Capture, or Auth/Capture, allows you to authorize the availability of funds for a transaction but delay the capture of funds until a later time.
 This is often useful for merchants who have a delayed order fulfillment process.

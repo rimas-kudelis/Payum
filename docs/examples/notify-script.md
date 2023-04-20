@@ -7,46 +7,78 @@ Payum is an MIT-licensed open source project with its ongoing development made p
 
 ---
 
-# Notify script.
+# Notify scripts.
 
-You can use this script if a gateway allows setting notification url per payment, like Paypal.
+## Notify safe
+
+You can use this script if a gateway allows setting notification url per payment, like PayPal.
 
 ```php
 <?php
 //notify.php
 
-use Payum\Core\Request\Notify;
-use Payum\Core\Payum;
-use Payum\Core\Reply\HttpResponse;
-use Payum\Core\Reply\ReplyInterface;
-
 include __DIR__.'/config.php';
 
-/** @var Payum $payum */
+use Payum\Core\Reply\HttpResponse;
+use Payum\Core\Request\Notify;
 
 $token = $payum->getHttpRequestVerifier()->verify($_REQUEST);
 $gateway = $payum->getGateway($token->getGatewayName());
 
-try {
-    $gateway->execute(new Notify($token));
-
-    http_response_code(204);
-    echo 'OK';
-} catch (HttpResponse $reply) {
-    foreach ($reply->getHeaders() as $name => $value) {
-        header("$name: $value");
+if ($reply = $gateway->execute(new Notify($token), true)) {
+    if ($reply instanceof HttpResponse) {
+        foreach ($reply->getHeaders() as $name => $value) {
+            header(sprintf('%s: %s', $name, $value));
+        }
+        
+        http_response_code($reply->getStatusCode());
+        
+        echo $reply->getContent();
+        
+        die();
     }
 
-    http_response_code($reply->getStatusCode());
-    echo ($reply->getContent());
-
-    exit;
-} catch (ReplyInterface $reply) {
-    throw new \LogicException('Unsupported reply', null, $reply);
+    throw new LogicException('Unsupported reply', null, $reply);
 }
+
+http_response_code(204);
+echo '';
 ```
 
-You have to use this script if a gateway does not allows setting notification url per payment, like Be2Bill.
+## Notify unsafe
+
+You have to use this script if a gateway does not allow setting notification url per payment, like Be2Bill.
+
+```php
+<?php
+//notify-unsafe.php
+
+include __DIR__.'/config.php';
+
+use Payum\Core\Reply\HttpResponse;
+use Payum\Core\Request\Notify;
+
+$gateway = $this->getPayum()->getGateway($_REQUEST['gateway']);
+
+if ($reply = $gateway->execute(new Notify(null), true)) {
+    if ($reply instanceof HttpResponse) {
+        foreach ($reply->getHeaders() as $name => $value) {
+            header(sprintf('%s: %s', $name, $value));
+        }
+        
+        http_response_code($reply->getStatusCode());
+        
+        echo $reply->getContent();
+        
+        die();
+    }
+
+    throw new LogicException('Unsupported reply', null, $reply);
+}
+
+http_response_code(204);
+echo '';
+```
 
 Back to [examples](index.md).
 Back to [index](../index.md).

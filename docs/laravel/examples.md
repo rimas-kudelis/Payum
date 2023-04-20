@@ -9,9 +9,9 @@ Payum is an MIT-licensed open source project with its ongoing development made p
 
 # Payum Laravel Package. Examples
 
-## Paypal Express checkout
+## PayPal Express checkout
 
-Described in [Get it started](get-it-started.md)
+Described in [Getting started](getting-started.md)
 
 ## Payment model
 
@@ -54,7 +54,7 @@ class PaymentController extends PayumController
          $payment->setClientEmail('foo@example.com');
          $payment->setDetails(array(
            // put here any fields in a gateway format.
-           // for example if you use Paypal ExpressCheckout you can define a description of the first item:
+           // for example if you use PayPal Express Checkout you can define a description of the first item:
            // 'L_PAYMENTREQUEST_0_DESC0' => 'A desc',
          ));
          $storage->update($payment);

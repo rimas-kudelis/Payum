@@ -7,7 +7,7 @@ Payum is an MIT-licensed open source project with its ongoing development made p
 
 ---
 
-# Paypal Express Checkout. Recurring payments basics.
+# PayPal Express Checkout. Recurring payments basics.
 
 In this chapter we describe the basic steps you have to follow to set up recurring payments.
 We will use weather subscription as example.
